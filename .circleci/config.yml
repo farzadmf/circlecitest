@@ -28,7 +28,8 @@ jobs:
       - run:
           name: "Say hello 2"
           command: "echo Hello, World 2!"
-  noop-job: {}
+  noop-job:
+    steps: {}
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
