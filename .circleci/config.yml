@@ -6,7 +6,6 @@ executors:
   hourly:
     machine:
       image: ubuntu-2004:202101-01
-      docker_layer_caching: true
     working_directory: ~/myexecutor
 
 jobs:
