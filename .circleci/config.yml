@@ -13,7 +13,7 @@ jobs:
   my-job:
     executor: hourly
     steps:
-    - with-save-restore-images:
+    - docker-cache/with-save-restore-images:
         repository: myrepo
         steps:
         - run:
