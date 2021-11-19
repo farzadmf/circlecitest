@@ -2,11 +2,10 @@ version: 2.1
 jobs:
   my-job:
     docker:
-      - image: alpine
+      - image: cimg/base:2021.04
     steps:
       - run: |
-          echo 'hello world'
-          echo 'there'
+          docker-compose build
 
 workflows:
   say-hello-workflow:
