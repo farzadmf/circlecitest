@@ -1,37 +1,14 @@
 version: 2.1
-orbs:
-  docker-cache: cci-x/docker-registry-image-cache@0.2.12
-
-executors:
-  hourly:
-    machine:
-      image: ubuntu-2004:202101-01
-    working_directory: ~/myexecutor
-
 jobs:
   my-job:
-    executor: hourly
+    docker:
+      - image: alpine
     steps:
-    - docker-cache/with-save-restore-images:
-        repository: myrepo
-        steps:
-        - run:
-            name: testing
-            command: |
-              echo '++++++++++++++++++++++++'
-              docker images --no-trunc --digests
-              echo '------------------------'
+      - run: |
+          echo 'hello world'
+          echo 'there'
 
-              docker pull alpine:3.2
-              docker tag alpine:3.2 myrepo/alpine:hello
-
-              echo '++++++++++++++++++++++++'
-              docker images --no-trunc --digests
-              echo '------------------------'
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-    - my-job
+      - my-job

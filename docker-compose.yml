@@ -1,0 +1,10 @@
+version: '3'
+services:
+  worker:
+    image: alpine
+    command:
+    - sh
+    - -c
+    - 'sleep 10'
+  redis:
+    image: redis
