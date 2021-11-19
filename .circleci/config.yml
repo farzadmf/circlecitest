@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: cimg/base:2021.04
     steps:
+      - checkout
       - run: |
           pwd
           ls -l
