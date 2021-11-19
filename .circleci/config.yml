@@ -5,6 +5,7 @@ jobs:
       - image: cimg/base:2021.04
     steps:
       - checkout
+      - setup_remote_docker
       - run: |
           pwd
           ls -l
