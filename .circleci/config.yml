@@ -16,8 +16,10 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run: |
           docker-compose --version
-      - run: |
           docker-compose build
+          docker-compose up -d
+          sleep 2
+          docker-compose logs
 
 workflows:
   say-hello-workflow:
